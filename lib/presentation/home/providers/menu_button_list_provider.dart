@@ -1,4 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_demo/presentation/auth/auth_page.dart';
 import 'package:riverpod_demo/presentation/color_generator_page/color_generator_page.dart';
 import 'package:riverpod_demo/presentation/counter/counter_page.dart';
 import 'package:riverpod_demo/presentation/home/models/menu_button_model.dart';
@@ -8,7 +9,7 @@ import 'package:riverpod_demo/presentation/weather/list/weather_list_page.dart';
 
 final Provider<List<MenuButtonModel>> homeMenuButtonsProvider =
     Provider<List<MenuButtonModel>>(
-  (ref) => [
+  (_) => [
     MenuButtonModel(
       providerName: 'StateNotifier\nStateNotifierProvider',
       featureName: 'Live time',
@@ -33,6 +34,11 @@ final Provider<List<MenuButtonModel>> homeMenuButtonsProvider =
       providerName: 'Notifier provider',
       featureName: 'Color generator page',
       page: const ColorGeneratorPage(),
+    ),
+    MenuButtonModel(
+      providerName: 'Async notifier provider',
+      featureName: 'Auth page',
+      page: const AuthPage(),
     ),
   ],
 );

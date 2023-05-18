@@ -15,10 +15,11 @@ class MenuButtonListWidget extends ConsumerWidget {
     final List<MenuButtonModel> menuButtons = ref.read(homeMenuButtonsProvider);
     return GridView.builder(
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          mainAxisSpacing: 20,
-          crossAxisSpacing: 20,
-          childAspectRatio: 1 / 1.3),
+        crossAxisCount: 2,
+        mainAxisSpacing: 20,
+        crossAxisSpacing: 20,
+        childAspectRatio: 1,
+      ),
       padding: const EdgeInsets.all(20),
       itemCount: menuButtons.length,
       itemBuilder: (context, index) => MenuButtonTile(

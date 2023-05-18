@@ -52,7 +52,10 @@ class ColorGeneratorPage extends ConsumerWidget {
                 ),
               ),
               const SizedBox(height: 30),
-              Text('Code: ${ref.watch(colorProvider).value}'),
+              Text(
+                'Code: ${ref.watch(colorProvider).value.toRadixString(16).padLeft(8, '0')}',
+                style: Theme.of(context).textTheme.titleLarge,
+              ),
             ],
           ),
         ),

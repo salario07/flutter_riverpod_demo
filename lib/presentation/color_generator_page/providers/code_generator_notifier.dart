@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_demo/presentation/color_generator_page/providers/color_change_value_provider.dart';
 
 class ColorGeneratorNotifier extends AutoDisposeNotifier<Color> {
   ColorGeneratorNotifier() : super();
 
   void incrementRed() {
-    final int red = state.red + _delta < 255 ? state.red + _delta : 255;
+    final int red =
+        state.red + _changeValue < 255 ? state.red + _changeValue : 255;
     state = Color.fromARGB(
       state.alpha,
       red,
@@ -16,7 +18,7 @@ class ColorGeneratorNotifier extends AutoDisposeNotifier<Color> {
   }
 
   void decrementRed() {
-    final int red = state.red - _delta > 0 ? state.red - _delta : 0;
+    final int red = state.red - _changeValue > 0 ? state.red - _changeValue : 0;
     state = Color.fromARGB(
       state.alpha,
       red,
@@ -27,7 +29,8 @@ class ColorGeneratorNotifier extends AutoDisposeNotifier<Color> {
   }
 
   void incrementBlue() {
-    final int blue = state.blue + _delta < 255 ? state.blue + _delta : 255;
+    final int blue =
+        state.blue + _changeValue < 255 ? state.blue + _changeValue : 255;
     state = Color.fromARGB(
       state.alpha,
       state.red,
@@ -38,7 +41,8 @@ class ColorGeneratorNotifier extends AutoDisposeNotifier<Color> {
   }
 
   void decrementBlue() {
-    final int blue = state.blue - _delta > 0 ? state.blue - _delta : 0;
+    final int blue =
+        state.blue - _changeValue > 0 ? state.blue - _changeValue : 0;
     state = Color.fromARGB(
       state.alpha,
       state.red,
@@ -49,7 +53,8 @@ class ColorGeneratorNotifier extends AutoDisposeNotifier<Color> {
   }
 
   void incrementGreen() {
-    final int green = state.green + _delta < 255 ? state.green + _delta : 255;
+    final int green =
+        state.green + _changeValue < 255 ? state.green + _changeValue : 255;
     state = Color.fromARGB(
       state.alpha,
       state.red,
@@ -60,7 +65,8 @@ class ColorGeneratorNotifier extends AutoDisposeNotifier<Color> {
   }
 
   void decrementGreen() {
-    final int green = state.green - _delta > 0 ? state.green - _delta : 0;
+    final int green =
+        state.green - _changeValue > 0 ? state.green - _changeValue : 0;
     state = Color.fromARGB(
       state.alpha,
       state.red,
@@ -70,9 +76,12 @@ class ColorGeneratorNotifier extends AutoDisposeNotifier<Color> {
     _cachedColor = state;
   }
 
-  final int _delta = 50;
+  int _changeValue = 0;
   Color? _cachedColor;
 
   @override
-  Color build() => _cachedColor ?? Colors.lightBlueAccent;
+  Color build() {
+    _changeValue = ref.read(colorChangeValue);
+    return _cachedColor ?? Colors.lightBlueAccent;
+  }
 }

@@ -19,7 +19,9 @@ class ColorActionsTile extends StatelessWidget {
           children: [
             Text(
               model.colorName,
-              style: Theme.of(context).textTheme.headlineSmall,
+              style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                    color: model.color,
+                  ),
             ),
             const Spacer(),
             IconButton(

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_demo/presentation/weather/list/providers/current_city_state_provider.dart';
 import 'package:riverpod_demo/presentation/weather/list/widgets/weather_tile.dart';
 import 'package:riverpod_demo/presentation/weather/models/city_weather.dart';
-import 'package:riverpod_demo/providers.dart';
 
 import 'providers/weather_list_provider.dart';
 

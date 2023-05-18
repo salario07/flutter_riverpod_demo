@@ -10,7 +10,7 @@ class LiveTimePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) => AppScaffold(
         title: 'Provider demo, Live time',
-        child: Column(
+        body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text(

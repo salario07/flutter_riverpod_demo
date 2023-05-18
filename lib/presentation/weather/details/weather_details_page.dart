@@ -15,18 +15,18 @@ class WeatherDetailsPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) => AppScaffold(
         title: 'Future provider demo',
-        child: Column(
+        body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text(
               'Weather is:',
             ),
             const SizedBox(height: 10),
-            ref.watch(weatherDetailsProvider(0)).when(
+            ref.watch(weatherDetailsProvider(id ?? 1)).when(
                   skipLoadingOnRefresh: false,
                   data: (data) => Text(data.toString()),
                   error: (_, __) => RetryWidget(
-                    onRetry: () => ref.refresh(weatherDetailsProvider(id)),
+                    onRetry: () => ref.refresh(weatherDetailsProvider(id ?? 1)),
                   ),
                   loading: () => const CircularProgressIndicator(),
                 ),

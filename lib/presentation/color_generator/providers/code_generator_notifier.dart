@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_demo/presentation/color_generator_page/providers/color_change_value_provider.dart';
+import 'package:riverpod_demo/presentation/color_generator/providers/color_change_value_provider.dart';
 
 class ColorGeneratorNotifier extends AutoDisposeNotifier<Color> {
   ColorGeneratorNotifier() : super();

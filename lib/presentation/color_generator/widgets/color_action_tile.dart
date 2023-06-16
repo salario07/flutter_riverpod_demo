@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:riverpod_demo/presentation/color_generator_page/models/color_factor_model.dart';
+import 'package:riverpod_demo/presentation/color_generator/models/color_factor_model.dart';
 
 class ColorActionsTile extends StatelessWidget {
   final ColorFactorModel model;

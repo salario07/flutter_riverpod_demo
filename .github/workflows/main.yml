@@ -1,8 +1,9 @@
 name: Build and Release apk
 on:
   push:
-    tags:
-      - '*'
+    branches: ['master','develop']
+#    tags:
+#      - '*'
 env:
   flutter_version: '3.10.4'
   java_version: '12.x'

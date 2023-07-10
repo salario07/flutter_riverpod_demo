@@ -1,7 +1,8 @@
+name: Build and Release apk
 on:
   push:
-    branches: [ 'master','develop' ]
-name: Test, Build and Release apk
+    tags:
+      - '*'
 jobs:
   version:
     name: Create version number

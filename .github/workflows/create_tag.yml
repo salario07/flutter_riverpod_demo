@@ -4,21 +4,12 @@ on:
   push:
     branches:
       - master
-env:
-  flutter_version: '3.10.4'
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: subosito/flutter-action@v2
+      - uses: actions/checkout@v2
+      - uses: jacopocarlini/action-autotag@3.0.0
         with:
-          flutter-version: ${{ env.flutter_version }}
-          channel: 'stable'
-          cache: true
-      - run: flutter pub get
-      - uses: jacopocarlini/action-autotag@stable
-        env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
-        with:
-          tag_prefix: "v"

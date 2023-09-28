@@ -1,9 +1,9 @@
 name: Build and Release apk
 on:
   push:
-#    branches: ['master','develop']
-    tags:
-      - '*'
+    branches: ['master']
+#    tags:
+#      - '*'
 env:
   flutter_version: '3.10.4'
   java_version: '12.x'
@@ -59,7 +59,7 @@ jobs:
           flutter-version: ${{ env.flutter_version }}
       - run: flutter pub get
 #      - run: flutter test
-      - run: flutter build apk --split-per-abi
+      - run: flutter build appbundle
       - name: Create a Release APK
         uses: ncipollo/release-action@v1
         with:
